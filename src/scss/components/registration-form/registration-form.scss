@@ -1,0 +1,19 @@
+.registration-form {
+    @extend %flexColumn;
+    padding-top: $blocksGap;
+    gap: 50px;
+    padding-bottom: 100px;
+    &__select-position-block {
+        width: 380px;
+        
+        .select-position-block__radio-heading {
+            line-height: 14px;
+            padding-bottom: 6px;
+        }
+    }
+}
+.ssuccesful-refistration-screen {
+    @extend %flexColumn;
+    padding-top: $blocksGap;
+    padding-bottom: 100px;
+}

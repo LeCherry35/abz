@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header/Header";
 import Banner from "./components/Banner";
 import ProfilesList from "./components/ProfilesList";
+import RegistrationForm from "./components/ReigistrationForm";
 
 function App() {
 	
@@ -10,6 +11,7 @@ function App() {
 			<Header />
 			<Banner />
 			<ProfilesList />
+			<RegistrationForm />
 		</div>
 	);
 }
