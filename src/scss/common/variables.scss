@@ -1,21 +1,24 @@
-//colors
+/*  colors  */
 $backgroundColor: #F8F8F8;
 $backgroundWhite: #FFF;
 $primaryColor: #F4E041;
 $primaryBrightColor: #FFE302;
 $secondaryColor: #00BDD3;
 $black: rgba(0, 0, 0, 0.87);
+$inputBorder: #D0CFCF;
+$inputText: #7E7E7E;
+$errorColor: #CB3D40;
 
-//fonts
+/*  fonts  */
 $mainFont: 'Nunito', sans-serif;
 
-//breakpoints
+/*  breakpoints  */
 $breakpoint_s: 360px;
 $breakpoint_m: 768px;
 $breakpoint_l: 1024px;
 $breakpoint_xl: 2560px;
 
-//common values
+/*  common values  */
 $blocksGap: 140px;
 $innerContentWidth: 380px;
 $innerContentWidthMobile: 328px;

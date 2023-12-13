@@ -1,0 +1,18 @@
+@media (max-width: $breakpoint_xl) {
+}
+
+@media (max-width: $breakpoint_l) {
+    
+}
+
+@media screen and (max-width: $breakpoint_m) {
+    
+}
+
+@media (max-width: $breakpoint_s) {
+    .image-input-container {
+        &__image-name {
+            width: 245px;
+        }
+    }
+}

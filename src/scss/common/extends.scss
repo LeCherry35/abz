@@ -6,12 +6,17 @@
     font-weight: 400;
     text-align: center;
 }
-
 %bodyText {
     font-size: 16px;
     line-height: 26px;
     font-family: inherit;
     font-weight: 400;
+}
+%inputSmallText {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
 }
 
 /*  flex extends  */

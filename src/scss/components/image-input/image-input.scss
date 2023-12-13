@@ -1,0 +1,56 @@
+.image-input-container {
+    display: flex;
+    position: relative;
+    
+    &__image-input {
+        // visibility: hidden;
+        display: none;
+    }
+    &__image-upload-button {
+        @extend %bodyText;
+        color: black;
+        border: none;
+        border-radius: 4px 0px 0px 4px;
+        border: 1px solid rgba(0, 0, 0, 0.87);
+        background-color: none;
+        cursor: pointer;
+        height: 54px;
+        width: 83px;
+        padding: 14px;
+        box-sizing: border-box;
+            
+    }
+    &__image-upload-button_warning {
+        border-color: $errorColor;
+        border-width: 2px;
+    }
+    &__image-name {
+        padding: 14px;
+        @extend %bodyText;
+        border-radius: 0px 4px 4px 0px;
+        border: 1px solid $inputBorder;
+        border-left: none;
+        height: 54px;
+        width: 297px;
+        color: #7E7E7E;
+        box-sizing: border-box;
+        text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__image-name_warning {
+        border-color: $errorColor;
+        border-width: 2px;
+    }
+
+    &__warning-text {
+        color: $errorColor;
+        position: absolute;
+        @extend %inputSmallText;
+        background-color: $backgroundColor;
+        top: 60px;
+        left:16px;
+    }
+    
+
+}
