@@ -1,0 +1,22 @@
+@media (max-width: $breakpoint_xl) {
+}
+
+@media (max-width: $breakpoint_l) {
+    
+}
+
+@media screen and (max-width: $breakpoint_m) {
+    .text-input-container {
+        &__input {
+            max-width: $innerContentWidth;
+        }
+    }
+}
+
+@media (max-width: $breakpoint_s) {
+    .text-input-container {
+        &__input {
+            max-width: $innerContentWidthMobile;
+        }
+    }
+}

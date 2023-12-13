@@ -1,0 +1,43 @@
+.text-input-container {
+    position: relative;
+    &__input-name {
+        position: absolute;
+        @extend %inputSmallText;
+        color: $inputText;
+        background-color: $backgroundColor;
+        top: -8px;
+        left: 16px;
+        padding: 0 4px;
+    }
+    &__input-name_warning {
+        color: $errorColor;
+    }
+    &__input {
+        box-sizing: border-box;
+        width: $innerContentWidth;
+        height: 54px;
+        border-radius: 4px;
+        border: 1px solid $inputBorder;
+        background: none;
+        color: black;
+        font-family: "Nunito", sans-serif;
+        padding: 14px 16px;
+    }
+    &__input_warning {
+        border-color: $errorColor;
+        border-width: 2px;
+    }
+    &__input:focus-visible{
+        outline: none;
+    }
+    &__warning-text {
+        color: $errorColor;
+        position: absolute;
+        @extend %inputSmallText;
+        background-color: $backgroundColor;
+        top: 60px;
+        left:16px;
+    }
+    
+    
+}
