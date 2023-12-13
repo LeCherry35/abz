@@ -1,0 +1,31 @@
+.banner-container {
+    background-image: url('../src/img/pexels-alexandr-podvalny-1227513.jpeg');
+    background-size: auto 255%;
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    max-width: 1170px;
+    width: 100%;
+    
+    &__darkener {
+        box-sizing: border-box;
+        height: 650px;
+        @extend %flexColumn;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .banner-content {
+        width: $innerContentWidth;
+        color: white;
+        margin: 0 auto;
+        @extend %flexColumn;
+        &__heading {
+            @extend %headingText;
+        }
+        &__text {
+            @extend %bodyText;
+            padding-top: 21px;
+            padding-bottom: 32px;
+            text-align: center;
+        }
+    }
+}

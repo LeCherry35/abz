@@ -2,5 +2,9 @@
 @import "./common/extends.scss";
 @import "./common/common-styles.scss";
 @import "./common/common-styles-media.scss";
-@import "./components/button/button.scss";
-@import "./components/header/header.scss";
+@import "./components/App";
+@import "./components/button";
+@import "./components/header";
+@import "./components/banner";
+@import "./components/card";
+@import "./components/profiles-list/";

@@ -1,0 +1,18 @@
+.card-container {
+    // height: 370px;
+    padding: 20px;
+    background-color: $backgroundWhite;
+    @extend %flexColumn;    
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    &__avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    &__info {
+        width: 100%;
+    }
+}

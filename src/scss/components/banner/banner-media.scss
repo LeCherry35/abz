@@ -1,0 +1,25 @@
+@media (max-width: $breakpoint_xl) {
+}
+
+@media (max-width: $breakpoint_l) {
+}
+
+@media (max-width: $breakpoint_m) {
+    .banner-container {
+        &__darkener {
+            height: 500px;
+        }
+    }
+}
+
+@media (max-width: $breakpoint_s) {
+    .banner-container {
+        &__darkener {
+            padding-top: 40px;
+            padding-bottom: 70px;
+        }
+        .banner-content {
+            width: $innerContentWidthMobile;
+        }
+    }
+}
