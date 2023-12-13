@@ -1,11 +1,12 @@
 .card-container {
-    // height: 370px;
     padding: 20px;
     background-color: $backgroundWhite;
     @extend %flexColumn;    
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
+    max-width: 370px;
+    border-radius: 10px;
     &__avatar {
         width: 70px;
         height: 70px;
