@@ -45,7 +45,6 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			title: "ABZ",
 			template: "./src/index.html"
