@@ -1,3 +1,7 @@
-.App { 
+.App {
+    &__content {
     @extend %flexColumn;
+        width: 100%;
+        padding-top: 60px;
+    }
 }
