@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 
 
@@ -38,6 +40,37 @@ module.exports = {
 					"svgo-loader"
 				]
 			},
+			// {
+			// 	test: /\.(png|jpe?g|gif)$/i,
+			// 	use: [
+			// 		{
+			// 			loader: "file-loader",
+			// 		},
+			// 	],
+			// },
+			{
+				test: /\.(jpe?g|png|gif)$/i,
+				type: "asset",
+			},
+		],
+	},
+	optimization: {
+		minimizer: [
+			"...",
+			new ImageMinimizerPlugin({
+				minimizer: {
+					implementation: ImageMinimizerPlugin.imageminMinify,
+					options: {
+						// Lossless optimization with custom option
+						// Feel free to experiment with options for better result for you
+						plugins: [
+							["gifsicle", { interlaced: true }],
+							["jpegtran", { progressive: true }],
+							["optipng", { optimizationLevel: 5 }],
+						],
+					},
+				},
+			}),
 		],
 	},
 	resolve: {
