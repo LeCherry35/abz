@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Card from "../Card";
 import Button from "../Button";
 import Loader from "../Loader";
@@ -22,7 +22,7 @@ const ProfilesList = () => {
 		fetchProfiles(0, count);
 	});
     
-	const fetchProfiles = async (offset,count) => {
+	const fetchProfiles = useCallback( async (offset,count) => {
 		setIsLoading(true);
 		// setError(null);
 		
@@ -46,7 +46,7 @@ const ProfilesList = () => {
 			setIsLoading(false);
 
 		}
-	};
+	});
 
 	return (
 		<div className="profiles-container container">

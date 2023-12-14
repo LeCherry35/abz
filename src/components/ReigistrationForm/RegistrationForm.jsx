@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Input from "../Input";
 import RadioInput from "../RadioInput";
 import Button from "../Button";
@@ -29,7 +29,7 @@ const RegistrationForm = () => {
 		fetchPositions();
 	},[]);
 
-	const register = async e => {
+	const register = useCallback(async e => {
 		e.preventDefault();
 		
 		/*  getting validtion errors and result  */
@@ -72,9 +72,9 @@ const RegistrationForm = () => {
 		} else { /*  if orrors occcred during validation  */
 			setInputsValidationError(validationResult.errors);
 		}
-	};  
+	});  
 
-	const fetchPositions = async () => {
+	const fetchPositions = useCallback(async () => {
 		setIsLoading(true);
 		// setError(null);
 
@@ -94,10 +94,10 @@ const RegistrationForm = () => {
 			setIsLoading(false);
         
 		}
-	};
+	});
 
 	/*  validation function  */
-	const validate = async (inputsData) => {
+	const validate = useCallback(async (inputsData) => {
 		const nameValidationError = Validation.validateName(inputsData.name);
 		const emailValidationError = Validation.validateEmail(inputsData.email);
 		const phoneValidationError = Validation.validatePhone(inputsData.phone);
@@ -113,7 +113,7 @@ const RegistrationForm = () => {
 			}
 			
 		};
-	};
+	});
 
 	if (isRegistrationSuccessful) {
 		return (
