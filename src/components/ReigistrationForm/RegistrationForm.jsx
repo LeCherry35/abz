@@ -7,6 +7,7 @@ import Loader from "../Loader";
 import successImage from "../../img/success-image.svg";
 import Service from "../../services";
 import Validation from "../../helpers/validation";
+import { emitSuccesfulReg } from "../../events";
 
 
 const RegistrationForm = () => {
@@ -54,6 +55,7 @@ const RegistrationForm = () => {
 				const res = await Service.registerUser(tokenRes.data.token, data);
 				if (res.data.success) {
 					setIsRegistrationSuccessful(true);
+					emitSuccesfulReg(); /*  trigger successful registration event  */
 				}
 
 			} catch(e) {

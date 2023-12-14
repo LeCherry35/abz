@@ -3,22 +3,24 @@ import Card from "../Card";
 import Button from "../Button";
 import Loader from "../Loader";
 import Service from "../../services";
-import PropTypes from "prop-types";
+import { useSuccesfulRegListener } from "../../events";
+
 
 const ProfilesList = () => {
 
-	
-
 	const count = 6;
 	const [ profiles, setProfiles ] = useState([]);
-	const [ nextPageLink, setNextPageLink ] = useState(null); /*  indicates if last page is reached  */
+	const [ nextPageLink, setNextPageLink ] = useState(null); /*  indicates if there are more profiles to show to display button */
 	const [ isLoading, setIsLoading ] = useState(false);
 	// const [error, setError] = useState(null);
 
-
 	useEffect(()=> {
 		fetchProfiles(0, count);
-	},[]);    
+	},[]);
+
+	useSuccesfulRegListener(()=> {
+		fetchProfiles(0, count);
+	});
     
 	const fetchProfiles = async (offset,count) => {
 		setIsLoading(true);
@@ -28,11 +30,9 @@ const ProfilesList = () => {
 
 			const res = await Service.getProfiles(offset, count);
 
-			if(offset === 0) {
-				setProfiles(res.data.users);
-			} else {
-				setProfiles([...profiles, ...res.data.users]);
-			}
+			if(offset === 0) setProfiles(res.data.users);
+			else setProfiles([...profiles, ...res.data.users]);
+		
 			setNextPageLink(res.data.links.next_url);
 
 		} catch(e) {
@@ -46,7 +46,6 @@ const ProfilesList = () => {
 			setIsLoading(false);
 
 		}
-
 	};
 
 	return (
@@ -57,7 +56,7 @@ const ProfilesList = () => {
 			</div>
 			{isLoading 
 				? <Loader/>
-				: nextPageLink && <Button name="Show more" onClick={() => fetchProfiles(profiles.length,count) }/>}
+				: nextPageLink && <Button name="Show more" onClick={() => fetchProfiles(profiles.length,count) }/> /*  hide button if last page is reached  */}
 		</div>
 	);
 };
