@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import defaultAvatar from "../../img/photo-cover.svg";
 import PropTypes from "prop-types";
+import Tooltip from "../Tooltip";
 
-const Card = ({name, email, photo, position, phone}) => {
+const Card = ({ name, email, photo, position, phone }) => {
 
 	Card.propTypes = {
 		name: PropTypes.string,
@@ -12,16 +13,29 @@ const Card = ({name, email, photo, position, phone}) => {
 		phone: PropTypes.string,
 	};
 
+	const [tooltipData, setTooltipData] = useState({text: "", x:0, y:0, visible: false});
+
+	const showTooltip = useCallback((e, text) => {
+		const y = e.clientY;
+		const x = e.clientX;
+		setTooltipData({x, y, visible: true, text});
+	});
+
+	const hideTooltip = useCallback(() => {
+		setTooltipData({text: "", x:0, y:0, visible: false});
+	});
+
 	return (
 		<div className="card-container">
+			<Tooltip {...tooltipData}/>
 			<div className="card-container__avatar">
 				<img src={photo || defaultAvatar} alt="avatar"/>
 			</div>
-			<p className="text truncatedText" title={name}>{name}</p>
+			<p className="text truncatedText" onMouseEnter={e => showTooltip(e,name)} onMouseLeave={()=> hideTooltip()}>{name}</p>
 			<div className="card-container__info">
-				<p className="text truncatedText" title={position}>{position}</p>
-				<p className="text truncatedText" title={email}>{email}</p>
-				<p className="text truncatedText" title={phone}>{phone}</p>
+				<p className="text truncatedText">{position}</p>
+				<p className="text truncatedText" onMouseEnter={e => showTooltip(e, email)} onMouseLeave={()=> hideTooltip()}>{email}</p>
+				<p className="text truncatedText">{phone}</p>
 			</div>
 		</div>
 	);
