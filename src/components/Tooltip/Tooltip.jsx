@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 const Tooltip = ({text, x = 0, y = 0, visible = false}) => {
-    console.log(text, x, y, visible);
 
 	Tooltip.propTypes = {
 		text: PropTypes.string,

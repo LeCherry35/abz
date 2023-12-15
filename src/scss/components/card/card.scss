@@ -7,16 +7,6 @@
     box-sizing: border-box;
     max-width: 370px;
     border-radius: 10px;
-    &__avatar {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        overflow: hidden;
-        img {
-            width: 70px;
-            height: 70px; 
-        }
-    }
     &__info {
         width: 100%;
     }

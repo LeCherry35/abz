@@ -1,26 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import defaultAvatar from "../../img/photo-cover.svg";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import Tooltip from "../Tooltip";
+import Avatar from "../Avatar";
 
-const Card = ({ name, email, photo, position, phone }) => {
-
-	const [isImageLoaded, setIsImageLoaded] = useState(false);
-	/*  check if photo is loaded  */
-	useEffect(() => {
-		const getImage = photo => new Promise(resolve=> {
-			const img = new Image();
-			img.onload = () => {
-				resolve("ok");
-			};
-			img.src = photo;
-		});
-		getImage(photo).then(res => {
-			if(res ==="ok")setIsImageLoaded(true);
-		});
-	},[]);
-
-	
+const Card = ({ name, email, photo, position, phone }) => {	
 
 	Card.propTypes = {
 		name: PropTypes.string,
@@ -45,9 +28,7 @@ const Card = ({ name, email, photo, position, phone }) => {
 	return (
 		<div className="card-container">
 			<Tooltip {...tooltipData}/>
-			<div className="card-container__avatar">
-				<img src={isImageLoaded ? photo : defaultAvatar} alt="avatar"/>
-			</div>
+			<Avatar photoUrl={photo} />
 			<p className="text truncatedText" onMouseEnter={e => showTooltip(e,name)} onMouseLeave={()=> hideTooltip()}>{name}</p>
 			<div className="card-container__info">
 				<p className="text truncatedText">{position}</p>
